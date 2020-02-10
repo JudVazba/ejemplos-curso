@@ -15,6 +15,7 @@ namespace cursonet
                 // Aquí pon tu base de datos
                 builder.InitialCatalog = "pizzeria.curso";
                 builder.IntegratedSecurity = true;
+            
          
                 using (SqlConnection connection = new SqlConnection(builder.ConnectionString))
                 {
@@ -26,6 +27,7 @@ namespace cursonet
                     sb.Append("SELECT *");
                     sb.Append("FROM Curso");
                     String sql = sb.ToString();
+            
 
                     using (SqlCommand command = new SqlCommand(sql, connection))
                     {
@@ -33,7 +35,7 @@ namespace cursonet
                         {
                             while (reader.Read())
                             {
-                                Console.WriteLine("{0} {1}", reader.GetInt32(0), reader.GetString(1));
+                                Console.WriteLine("{0} hola {1}", reader.GetInt32(0), reader.GetString(1));
                             }
                         }
                     }                    
